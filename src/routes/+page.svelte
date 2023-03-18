@@ -62,14 +62,15 @@
 	}
 </script>
 
-<div class="flex flex-col pt-4 w-full px-8 items-center gap-2">
-	<div>
-		<h1 class="text-2xl font-bold w-full text-center">Chatty</h1>
-		<p class="text-sm italic">Powered by gpt-3.5-turbo</p>
+<div class='container' ng-cloak ng-app="chatApp">
+	<h1 class="text-2xl font-bold w-full text-center">EL(ai)SE</h1>
+	<p class="text-sm italic">Powered by OpenAI and LV.COI</p>
+  <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
+
 	</div>
-	<div class="h-[500px] w-full bg-gray-900 rounded-md p-4 overflow-y-auto flex flex-col gap-4">
+	<div class="h-[500px] w-full bg-blue-900 rounded-md p-4 overflow-y-auto flex flex-col gap-4">
 		<div class="flex flex-col gap-2">
-			<ChatMessage type="assistant" message="Hello, ask me anything you want!" />
+			<ChatMessage type="assistant" message="::Message the Community AI::" />
 			{#each chatMessages as message}
 				<ChatMessage type={message.role} message={message.content} />
 			{/each}
@@ -77,7 +78,7 @@
 				<ChatMessage type="assistant" message={answer} />
 			{/if}
 			{#if loading}
-				<ChatMessage type="assistant" message="Loading.." />
+				<ChatMessage type="assistant" message="Load.." />
 			{/if}
 		</div>
 		<div class="" bind:this={scrollToDiv} />
